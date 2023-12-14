@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './ProjectPage.css';
 
 const ProjectPage = () => {
@@ -18,19 +19,26 @@ const ProjectPage = () => {
     fetchProjects();
   }, []);
 
-  const handleEdit = (id) => {
-    // Logic for editing a project with id
-    console.log(`Editing project with id ${id}`);
-  };
+  // const handleEdit = (id) => {
+  //   // Logic for editing a project with id
+  //   console.log(`Editing project with id ${id}`);
+  // };
 
-  const handleDelete = (id) => {
-    // Logic for deleting a project with id
-    console.log(`Deleting project with id ${id}`);
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`${url}/${id}`);
+      setProjects((prevProjects) => prevProjects.filter((project) => project.id !== id));
+    } catch (error) {
+      console.error(`Error deleting project with id ${id}:`, error);
+    }
   };
 
     return (
       <div>
       <h1>List of Projects</h1>
+        <Link to="/projects/create">
+          <button>Create project</button>
+        </Link>
       <table>
         <thead>
           <tr>
@@ -48,10 +56,12 @@ const ProjectPage = () => {
               <td>{project.name}</td>
               <td>{project.description}</td>
               <td>
-                <button onClick={() => handleEdit(project.id)}>Edit(in progress...)</button>
+                <Link to={`/projects/${project.id}/edit`}>
+                  <button>Edit</button>
+                </Link>
               </td>
               <td>
-                <button onClick={() => handleDelete(project.id)}>Del(in progress...)</button>
+                <button onClick={() => handleDelete(project.id)}>Del</button>
               </td>
             </tr>
           ))}

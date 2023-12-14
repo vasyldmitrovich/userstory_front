@@ -1,9 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 import ProjectPage from './ProjectPage';
 import HomePage from './HomePage';
+import ProjectEdit from "./ProjectEdit";
+import ProjectCreate from "./ProjectCreate";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/projects" element={<ProjectPage />} />
+          <Route path="/projects/:id/edit" element={<ProjectEdit />} />
+          <Route path="/projects/create" element={<ProjectCreate />} />
         </Routes>
     </div>
   </Router>
