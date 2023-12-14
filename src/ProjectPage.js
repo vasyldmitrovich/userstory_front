@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import './ProjectPage.css';
 
 const ProjectPage = () => {
-  const url="http://localhost:8080/projects";
+  const url = `${process.env.REACT_APP_BACKEND_URL}`
   const [projects, setProjects] = useState([]);
 
     useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(`${url}/projects`);
         setProjects(response.data);
       } catch (error) {
         console.error('Error fetching projects:', error);
@@ -19,14 +19,9 @@ const ProjectPage = () => {
     fetchProjects();
   }, []);
 
-  // const handleEdit = (id) => {
-  //   // Logic for editing a project with id
-  //   console.log(`Editing project with id ${id}`);
-  // };
-
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${url}/${id}`);
+      await axios.delete(`${url}/projects/${id}`);
       setProjects((prevProjects) => prevProjects.filter((project) => project.id !== id));
     } catch (error) {
       console.error(`Error deleting project with id ${id}:`, error);

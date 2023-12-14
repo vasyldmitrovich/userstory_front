@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ProjectCreate = () => {
-    const url="http://localhost:8080/projects";
+    const url = `${process.env.REACT_APP_BACKEND_URL}`
     const [project, setProject] = useState({ name: '', description: '' });
     const navigate = useNavigate();
 
@@ -11,7 +11,7 @@ const ProjectCreate = () => {
         e.preventDefault();
 
         try {
-            await axios.post(url, project);
+            await axios.post(`${url}/projects`, project);
             navigate('/projects');
         } catch (error) {
             console.error('Error creating project:', error);

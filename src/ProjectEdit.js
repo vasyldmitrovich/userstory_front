@@ -3,7 +3,7 @@ import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
 
 const ProjectEdit = ({ match }) => {
-    const url="http://localhost:8080/projects";
+    const url = `${process.env.REACT_APP_BACKEND_URL}`
     const { id: projectId} = useParams();
     const [project, setProject] = useState({});
     const navigate = useNavigate();
@@ -11,9 +11,8 @@ const ProjectEdit = ({ match }) => {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await axios.get(`${url}/${projectId}`);
+                const response = await axios.get(`${url}/projects/${projectId}`);
                 setProject(response.data);
-                console.log(response.data);
             } catch (error) {
                 console.error(`Error fetching project with id ${projectId}:`, error);
             }
@@ -25,7 +24,7 @@ const ProjectEdit = ({ match }) => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try {
-            await axios.patch(`${url}/${projectId}`, project);
+            await axios.patch(`${url}/projects/${projectId}`, project);
             navigate('/projects');
         } catch (error) {
             console.error(`Error updating project with id ${projectId}:`, error);
