@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
+import { showSuccessToast, showErrorToast } from './ProjectTostify';
 
 const ProjectEdit = ({ match }) => {
     const url = `${process.env.REACT_APP_BACKEND_URL}`
@@ -25,8 +26,10 @@ const ProjectEdit = ({ match }) => {
         e.preventDefault();
         try {
             await axios.patch(`${url}/projects/${projectId}`, project);
+            showSuccessToast(`Project was updated. Project name: ${project.name}, Project description: ${project.description}`);
             navigate('/projects');
         } catch (error) {
+            showErrorToast(`Project was not updated. Error: ${error}`);
             console.error(`Error updating project with id ${projectId}:`, error);
         }
     };

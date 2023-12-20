@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { showSuccessToast, showErrorToast } from './ProjectTostify';
+
 
 const ProjectCreate = () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}`
@@ -12,8 +14,11 @@ const ProjectCreate = () => {
 
         try {
             await axios.post(`${url}/projects`, project);
+            showSuccessToast(`Project was created. Project name: ${project.name}, Project description: ${project.description}`);
+
             navigate('/projects');
         } catch (error) {
+            showErrorToast(`Project was not created. Error: ${error}`);
             console.error('Error creating project:', error);
         }
     };

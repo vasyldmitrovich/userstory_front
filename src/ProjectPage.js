@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './ProjectPage.css';
+import {showErrorToast, showSuccessToast} from "./ProjectTostify";
 
 const ProjectPage = () => {
   const url = `${process.env.REACT_APP_BACKEND_URL}`
@@ -22,8 +23,10 @@ const ProjectPage = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${url}/projects/${id}`);
+      showSuccessToast(`Project with id: ${id} was deleted`);
       setProjects((prevProjects) => prevProjects.filter((project) => project.id !== id));
     } catch (error) {
+      showErrorToast(`Project with id: ${id} was not deleted`);
       console.error(`Error deleting project with id ${id}:`, error);
     }
   };

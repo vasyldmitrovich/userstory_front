@@ -5,11 +5,16 @@ import ProjectPage from './ProjectPage';
 import HomePage from './HomePage';
 import ProjectEdit from "./ProjectEdit";
 import ProjectCreate from "./ProjectCreate";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const notify = () => toast("Wow so easy!");
+
   return (
   <Router>
     <div className="App">
+      <ToastContainer />
       <header>
       <h1>Frontend on React for project 'UserStory'</h1>
       <Link to="/" className="App-link">
