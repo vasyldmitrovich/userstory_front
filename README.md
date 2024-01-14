@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# User Story Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+This project serves as the front-end component of the User Story, a web application that allows users to create projects, join them, and manage tasks related to specific stories.
 
-In the project directory, you can run:
+### Key Features
 
-### `npm start`
+1. **Authentication and Registration:** Users can log in and create an account.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Projects and Stories:** Users can join existing projects, which include various stories - significant events or tasks.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Task Management:** Users can assign and complete tasks (cards or tasks) associated with a specific story.
 
-### `npm test`
+### Technical Details
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Front-end written on:** React JS
+- **Required Tools:** nodejs 20.11.0 version, npm 10.2.4 version
 
-### `npm run build`
+## Running the Project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the Repository:**
+```bash
+git clone [repository URL]
+```
+2. **Build the Project:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   Execute the following command in the project's root directory:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Run the Project:**
 
-### `npm run eject`
+After successful building you could run the front-end in dev mode:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
+```
+    The application will start on 3000 port.
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To build the front-end to production run command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run build
+```
+```text
+    The application will appear in the ./build folder.
+    Copy all files in your webserver and configure it.
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* **Back-end Configuration**
 
-## Learn More
+The path and connection data to the back-end are obtained from the following environment variables:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    REACT_APP_BACKEND_URL
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Before running, ensure that the back-end was running:
 
-### Code Splitting
+Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    The project is at an early development stage, and currently, only CRUD operations for the Project entity are implemented.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Wishing you success with the "User Story" project!
