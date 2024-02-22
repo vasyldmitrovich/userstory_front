@@ -1,6 +1,6 @@
 # User Story Project
 
-<img src="./assets/images/front.png" style="width: 600px; height: 300px;"><br>
+<img src="front.png" style="width: 600px; height: 300px;"><br>
 <br>
 
 ## Project Overview
