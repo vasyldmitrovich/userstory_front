@@ -58,7 +58,7 @@ npm run build
 
 The path and connection data to the back-end are obtained from the following environment variables:
 
-    REACT_APP_BACKEND_URL
+    BACKEND_URL
 
 Before running, ensure that the back-end was running:
 
